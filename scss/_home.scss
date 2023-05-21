@@ -1,5 +1,6 @@
 .s-hero {
     position: relative;
+    z-index: 2;
     .slide-principal {
         width: 100%;
         height: 73.6rem;
@@ -349,13 +350,143 @@
     }
 }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(2rem);
-    }
-    to {
+.show-modal {
+    .modal {
         opacity: 1;
-        transform: translateY(0rem);
+        pointer-events: all;
+        .box {
+            transform: translateX(0);
+        }
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2023;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .close {
+        position: absolute;
+        top: 2.4rem;
+        right: 2.4rem;
+    }
+    .box {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 69.6rem;
+        height: 60rem;
+        background: url("../assets/bg-modal.png") no-repeat $dark-100 top left;
+        border-radius: 0.4rem;
+        @include flex(column, center, center);
+        transform: translateY(5rem);
+        transition: transform .3s;
+        .logo {
+            margin-bottom: 4rem;
+            width: 16.6rem;
+        }
+        form {
+            width: 100%;
+            max-width: 42.6rem;
+            .form-group {
+                margin-bottom: 1.6rem;
+                &:last-child {
+                    margin-bottom: 2.4rem;
+                }
+                input[type="text"],
+                input[type="password"] {
+                    width: 100%;
+                    height: 4.8rem;
+                    border-radius: 0.4rem;
+                    border: none;
+                    padding: 0 1.6rem;
+                    font-weight: 500;
+                    font-size: 1.5rem;
+                    line-height: 2.2rem;
+                    color: $neutral-700;
+                    &::placeholder {
+                        opacity: 0.6;
+                    }
+                }
+                button {
+                    width: 100%;
+                    justify-content: center;
+                    line-height: 5.2rem;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .others-connect {
+            margin-bottom: 3.5rem;
+            p {
+                font-weight: 500;
+                font-size: 1.4rem;
+                line-height: 2.1rem;
+                color: $white;
+                margin-bottom: 1.6rem;
+                text-align: center;
+            }
+            ul {
+                display: flex;
+                li {
+                    &:not(:first-child) {
+                        margin-left: 1.6rem;
+                    }
+                    button {
+                        width: 4.8rem;
+                        height: 4.8rem;
+                        border-radius: 0.4rem;
+                        background-color: $white;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        .msg-users {
+            p {
+                text-align: center;
+                font-weight: 500;
+                font-size: 1.6rem;
+                line-height: 2.4rem;
+                margin-bottom: 1.6rem;
+                a {
+                    display: inline-block;
+                }
+            }
+
+            a {
+                font-weight: 500;
+                font-size: 1.6rem;
+                line-height: 2.4rem;
+                text-decoration: underline;
+                color: $primary-default;
+                text-align: center;
+                display: block;
+                transition: color .3s;
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
     }
 }

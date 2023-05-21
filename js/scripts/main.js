@@ -37,3 +37,45 @@ allFilters.forEach((filter, index) => {
     filter.classList.add('active');
   })
 })
+
+const btnOpenModal = document.querySelector('.js-open-modal');
+const btnFecharModal = document.querySelector('.js-close');
+
+
+btnOpenModal.addEventListener('click', (event) => {
+  event.preventDefault();
+  let html = document.documentElement;
+  html.classList.add('show-modal');
+})
+
+btnFecharModal.addEventListener('click', (event) => {
+  let html = document.documentElement;
+  html.classList.remove('show-modal');
+})
+
+const btnMenu = document.querySelectorAll('.js-btn-menu');
+const menuSite = document.querySelectorAll('.js-menu');
+
+
+btnMenu.forEach((btn,index) => {
+  btn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    menuSite.forEach(itemMenu => {
+      itemMenu.classList.remove('active');
+      itemMenu.addEventListener('mouseleave', () => {
+        itemMenu.classList.remove('active');
+        btnMenu.forEach(itemBtn => {
+          itemBtn.classList.remove('active');
+        })
+      })
+    })
+
+    btnMenu.forEach(itemBtn => {
+      itemBtn.classList.remove('active');
+    })
+
+    btn.classList.add('active');
+    menuSite[index].classList.add('active');
+  })
+})

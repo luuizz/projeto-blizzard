@@ -24,7 +24,13 @@ $white: #fff;
 $white-100: #E5E5E5;
 
 
-// Transparent Colors
+// Dark colors
+
+$dark: #000;
+$dark-100: #020203;
+$dark-700: #9D9D9D;
+
+// Transparent White Colors
 
 $transparent-900: rgba(255,255,255,0.9);
 $transparent-800: rgba(255,255,255,0.8);
@@ -36,3 +42,7 @@ $transparent-300: rgba(255,255,255,0.3);
 $transparent-200: rgba(255,255,255,0.2);
 $transparent-100: rgba(255,255,255,0.1);
 $transparent-white-800: rgba(229,229,229,0.8);
+
+// Transparent Dark colors
+
+$transparent-dark-700: rgba(21, 23, 27,0.7);
