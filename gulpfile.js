@@ -56,7 +56,7 @@ function browser() {
     browserSync.init({
         server: {
             baseDir: './'
-        }
+        },
     })
 }
 

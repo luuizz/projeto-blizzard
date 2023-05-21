@@ -64,4 +64,23 @@
             color: $transparent-white-800;
         }
     }
+    @include responsive (1200px) {
+        .image {
+            height: 34.3rem;
+        }
+    }
+    @include responsive (991px) {
+        .image {
+            height: 30.3rem;
+        }
+    }
+    @include responsive (560px) {
+        .image {
+            height: 21.3rem;
+            margin-bottom: 0;
+        }
+        .info {
+            display: none;
+        }
+    }
 }

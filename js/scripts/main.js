@@ -3,7 +3,17 @@ var slide_thumbnail = new Swiper(".slide-thumbnail", {
     direction: 'vertical',
     spaceBetween: 20,
     watchSlidesProgress: true,
+    breakpoints: {
+      320: {
+        direction: 'horizontal',
+      },
+      1150: {
+        direction: 'vertical',
+      },
+    }
   });
+
+const progressSlide = document.querySelector('.js-progress');
 
 var slide_hero = new Swiper(".slide-principal", {
     effect: 'fade',
@@ -12,7 +22,23 @@ var slide_hero = new Swiper(".slide-principal", {
     },
     autoplay: {
         delay: 5000,
-        disableOnInteraction: false
+        disableOnInteraction: false,
+    },
+    on: {
+      init: function() {
+        progressSlide.classList.remove('animate');
+        progressSlide.classList.remove('active');
+        progressSlide.classList.add('animate');
+        progressSlide.classList.add('active');
+      },
+      slideChangeTransitionStart: function() {
+        progressSlide.classList.remove('animate');
+        progressSlide.classList.remove('active');
+        progressSlide.classList.add('active');
+      },
+      slideChangeTransitionEnd: function() {
+        progressSlide.classList.add('animate');
+      },
     }
   });
 
